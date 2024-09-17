@@ -4,8 +4,8 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - './**'  # Ajusta el path según la ubicación de tus archivos de código
+    #paths:
+     # - './**'  # Ajusta el path según la ubicación de tus archivos de código
 
 jobs:
   test:
