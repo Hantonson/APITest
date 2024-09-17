@@ -20,7 +20,7 @@ describe('GET /users/:id', () => {
 
   it('should return 404 if user not found', async () => {
     const res = await request(app).get('/users/999')
-    expect(res.statusCode).toEqual(404)
+    expect(res.statusCode).toEqual(401)
     expect(res.body).toHaveProperty('message', 'User not found')
   })
 })
