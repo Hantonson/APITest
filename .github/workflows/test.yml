@@ -8,27 +8,38 @@ on:
      # - './**'  # Ajusta el path según la ubicación de tus archivos de código
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]  # Puedes usar una versión de Node.js específica
-
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v3
+    
+    - name: Install modules
+      run: npm install
+    
+    - name: Run tests
+      run: npm test
+  #test:
+  #  runs-on: ubuntu-latest
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
+  #  strategy:
+  #    matrix:
+  #      node-version: [16.x]  # Puedes usar una versión de Node.js específica
 
-      - name: Install dependencies
-        run: npm install
+  #  steps:
+  #    - name: Checkout repository
+  #      uses: actions/checkout@v3
 
-      - name: Run tests
-        run: npx test --verbose --coverage
+  #    - name: Set up Node.js
+  #      uses: actions/setup-node@v3
+  #      with:
+  #        node-version: ${{ matrix.node-version }}
+
+  #    - name: Install dependencies
+  #      run: npm install
+
+  #    - name: Run tests
+  #      run: npx test --verbose --coverage
 
       #- name: Upload coverage to Codecov
       #  if: always()
