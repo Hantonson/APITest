@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - './'  # Ajusta el path según la ubicación de tus archivos de código
+      - './**'  # Ajusta el path según la ubicación de tus archivos de código
 
 jobs:
   test:
