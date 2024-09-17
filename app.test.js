@@ -10,20 +10,20 @@ describe('GET /users', () => {
   })
 })
 
-// // Test para GET /users/:id
-// describe('GET /users/:id', () => {
-//   it('should return a single user by ID', async () => {
-//     const res = await request(app).get('/users/1')
-//     expect(res.statusCode).toEqual(200)
-//     expect(res.body).toHaveProperty('id', 1)
-//   })
+// Test para GET /users/:id
+describe('GET /users/:id', () => {
+  it('should return a single user by ID', async () => {
+    const res = await request(app).get('/users/1')
+    expect(res.statusCode).toEqual(200)
+    expect(res.body).toHaveProperty('id', 1)
+  })
 
-//   it('should return 404 if user not found', async () => {
-//     const res = await request(app).get('/users/999')
-//     expect(res.statusCode).toEqual(404)
-//     expect(res.body).toHaveProperty('message', 'User not found')
-//   })
-// })
+  it('should return 404 if user not found', async () => {
+    const res = await request(app).get('/users/999')
+    expect(res.statusCode).toEqual(404)
+    expect(res.body).toHaveProperty('message', 'User not found')
+  })
+})
 
 // // Test para POST /users
 // describe('POST /users', () => {
