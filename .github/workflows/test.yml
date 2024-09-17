@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npx test --coverage
+        run: npx test --coverage --verbose
 
       #- name: Upload coverage to Codecov
       #  if: always()
