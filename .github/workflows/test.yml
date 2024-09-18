@@ -1,39 +1,25 @@
-name: Run Tests and Check Coverage
+name: Run Test
 
-on:
-  pull_request:
+on: 
+  pull-request:
     branches:
       - main
-    #paths:
-     # - './**'  # Ajusta el path según la ubicación de tus archivos de código
-
+    
 jobs:
   test:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]  # Puedes usar una versión de Node.js específica
-
+    
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-
+          node-version: '16'
+        
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npx test --coverage
-
-      #- name: Upload coverage to Codecov
-      #  if: always()
-      #  uses: codecov/codecov-action@v3
-      #  with:
-      #    files: ./coverage/*.json
-      #    fail_ci_if_error: true
-      #    verbose: true
+      - name: Run Jest Tests
+        run: npm test
