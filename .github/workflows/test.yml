@@ -1,7 +1,7 @@
 name: Run Test
 
 on: 
-  pull-request:
+  pull_request:
     branches:
       - main
     
@@ -20,6 +20,9 @@ jobs:
         
       - name: Install dependencies
         run: npm install
+
+      - name: Fix Jest permission issues
+        run: chmod +x ./node_modules/.bin/jest
 
       - name: Run Jest Tests
         run: npm test
